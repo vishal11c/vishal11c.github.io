@@ -91,54 +91,120 @@ export function AnimatedBackground() {
   return (
     <div style={{ position: 'fixed', inset: 0, zIndex: 0, pointerEvents: 'none', overflow: 'hidden' }}>
 
-      {/* ── 1 · Deep base ─────────────────────────────────────────── */}
+      {/* ── 1 · Deep base with modern gradient ─────────────────────────────────────────── */}
       <div
         style={{
           position: 'absolute', inset: 0,
           background:
-            'radial-gradient(ellipse 100% 80% at 50% 0%, #0d1b38 0%, #020817 60%, #040c1e 100%)',
+            'radial-gradient(ellipse 120% 90% at 50% 10%, #0f1729 0%, #020817 45%, #030b1f 100%)',
         }}
       />
 
-      {/* ── 2 · Aurora bands — diagonal drifting colour sheets ─────── */}
+      {/* ── 1.5 · Mesh gradient overlay for depth ─────────────────────────────────────── */}
+      <motion.div
+        style={{
+          position: 'absolute', inset: 0,
+          background: `
+            radial-gradient(at 20% 30%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+            radial-gradient(at 80% 20%, rgba(139, 92, 246, 0.12) 0px, transparent 50%),
+            radial-gradient(at 40% 70%, rgba(6, 182, 212, 0.10) 0px, transparent 50%),
+            radial-gradient(at 90% 80%, rgba(59, 130, 246, 0.08) 0px, transparent 50%)
+          `,
+          filter: 'blur(60px)',
+        }}
+        animate={{
+          opacity: [0.3, 0.5, 0.4, 0.5, 0.3],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        }}
+      />
+
+      {/* ── 2 · Enhanced Aurora bands — smooth gradient waves ─────── */}
       <motion.div
         style={{
           position: 'absolute', top: '-30%', left: '-20%',
           width: '140%', height: '35%',
           background:
-            'linear-gradient(180deg, transparent, rgba(59,130,246,0.13) 40%, rgba(6,182,212,0.10) 60%, transparent)',
+            'linear-gradient(135deg, transparent, rgba(59,130,246,0.16) 30%, rgba(6,182,212,0.14) 50%, rgba(59,130,246,0.12) 70%, transparent)',
           transform: 'rotate(-18deg)',
-          filter: 'blur(42px)',
+          filter: 'blur(50px)',
         }}
         initial={{ x: -8, y: -6 }}
-        animate={{ x: 8, y: 6 }}
-        transition={{ duration: 20, repeat: Infinity, repeatType: 'mirror', ease: 'easeInOut' }}
+        animate={{
+          x: [- 8, 12, -8],
+          y: [-6, 8, -6],
+          opacity: [0.6, 0.85, 0.6]
+        }}
+        transition={{ duration: 25, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div
         style={{
           position: 'absolute', top: '20%', left: '-30%',
           width: '160%', height: '25%',
           background:
-            'linear-gradient(180deg, transparent, rgba(139,92,246,0.10) 40%, rgba(59,130,246,0.09) 60%, transparent)',
+            'linear-gradient(125deg, transparent, rgba(139,92,246,0.13) 30%, rgba(59,130,246,0.11) 50%, rgba(139,92,246,0.09) 70%, transparent)',
           transform: 'rotate(-14deg)',
-          filter: 'blur(42px)',
+          filter: 'blur(55px)',
         }}
         initial={{ x: -10, y: -4 }}
-        animate={{ x: 10, y: 4 }}
-        transition={{ duration: 28, repeat: Infinity, repeatType: 'mirror', ease: 'easeInOut', delay: 8 }}
+        animate={{
+          x: [-10, 14, -10],
+          y: [-4, 6, -4],
+          opacity: [0.5, 0.75, 0.5]
+        }}
+        transition={{ duration: 30, repeat: Infinity, ease: 'easeInOut', delay: 8 }}
       />
       <motion.div
         style={{
           position: 'absolute', top: '55%', left: '-10%',
           width: '130%', height: '30%',
           background:
-            'linear-gradient(180deg, transparent, rgba(6,182,212,0.09) 40%, rgba(34,197,94,0.07) 60%, transparent)',
+            'linear-gradient(140deg, transparent, rgba(6,182,212,0.12) 30%, rgba(34,197,94,0.09) 50%, rgba(6,182,212,0.08) 70%, transparent)',
           transform: 'rotate(-20deg)',
-          filter: 'blur(42px)',
+          filter: 'blur(50px)',
         }}
         initial={{ x: -6, y: -5 }}
-        animate={{ x: 6, y: 5 }}
-        transition={{ duration: 24, repeat: Infinity, repeatType: 'mirror', ease: 'easeInOut', delay: 15 }}
+        animate={{
+          x: [-6, 10, -6],
+          y: [-5, 7, -5],
+          opacity: [0.5, 0.7, 0.5]
+        }}
+        transition={{ duration: 28, repeat: Infinity, ease: 'easeInOut', delay: 15 }}
+      />
+
+      {/* ── 2.5 · Floating gradient orbs ─────── */}
+      <motion.div
+        style={{
+          position: 'absolute', top: '15%', right: '20%',
+          width: 300, height: 300,
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(139,92,246,0.25) 0%, rgba(139,92,246,0.08) 40%, transparent 70%)',
+          filter: 'blur(40px)',
+        }}
+        animate={{
+          x: [-20, 20, -20],
+          y: [-30, 30, -30],
+          scale: [1, 1.15, 1],
+        }}
+        transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut', delay: 3 }}
+      />
+      <motion.div
+        style={{
+          position: 'absolute', bottom: '25%', left: '15%',
+          width: 350, height: 350,
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(6,182,212,0.22) 0%, rgba(6,182,212,0.07) 40%, transparent 70%)',
+          filter: 'blur(45px)',
+        }}
+        animate={{
+          x: [20, -20, 20],
+          y: [25, -25, 25],
+          scale: [1, 1.2, 1],
+        }}
+        transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut', delay: 7 }}
       />
 
       {/* ── 3 · Constellation SVG — nodes + edges + data pulses ─────── */}
@@ -187,23 +253,47 @@ export function AnimatedBackground() {
           )
         })}
 
-        {/* Network nodes — pulse opacity independently */}
+        {/* Network nodes — enhanced pulse with scale */}
         {NODES.map((n) => (
-          <motion.circle
-            key={n.id}
-            cx={n.cx}
-            cy={n.cy}
-            r={n.r}
-            fill={n.id === 23 ? 'rgba(6,182,212,0.95)' : 'rgba(59,130,246,0.85)'}
-            filter="url(#nglow)"
-            animate={{ opacity: [0.28, 0.92, 0.50, 0.92, 0.28] }}
-            transition={{
-              duration: 3 + (n.id % 3),
-              repeat: Infinity,
-              delay: (n.id * 0.19) % 4.2,
-              ease: 'easeInOut',
-            }}
-          />
+          <motion.g key={n.id}>
+            {/* Outer ring pulse */}
+            <motion.circle
+              cx={n.cx}
+              cy={n.cy}
+              r={n.r * 2.5}
+              fill="none"
+              stroke={n.id === 23 ? 'rgba(6,182,212,0.4)' : 'rgba(59,130,246,0.3)'}
+              strokeWidth="0.3"
+              animate={{
+                r: [n.r * 2.5, n.r * 4, n.r * 2.5],
+                opacity: [0.5, 0, 0.5],
+              }}
+              transition={{
+                duration: 3 + (n.id % 3),
+                repeat: Infinity,
+                delay: (n.id * 0.19) % 4.2,
+                ease: 'easeOut',
+              }}
+            />
+            {/* Main node */}
+            <motion.circle
+              cx={n.cx}
+              cy={n.cy}
+              r={n.r}
+              fill={n.id === 23 ? 'rgba(6,182,212,0.95)' : 'rgba(59,130,246,0.85)'}
+              filter="url(#nglow)"
+              animate={{
+                opacity: [0.4, 1, 0.6, 1, 0.4],
+                scale: [1, 1.15, 1],
+              }}
+              transition={{
+                duration: 3 + (n.id % 3),
+                repeat: Infinity,
+                delay: (n.id * 0.19) % 4.2,
+                ease: 'easeInOut',
+              }}
+            />
+          </motion.g>
         ))}
 
         {/* Data pulses — travel along edges */}
@@ -258,21 +348,60 @@ export function AnimatedBackground() {
         />
       ))}
 
-      {/* ── 5 · Two anchored colour cores (no movement, crisp glow) ── */}
-      <div
+      {/* ── 5 · Enhanced glowing cores with subtle pulse ── */}
+      <motion.div
         style={{
-          position: 'absolute', width: 620, height: 620, borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(59,130,246,0.22) 0%, transparent 65%)',
-          filter: 'blur(32px)',
-          top: '-16%', left: '-10%',
+          position: 'absolute', width: 700, height: 700, borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(59,130,246,0.28) 0%, rgba(59,130,246,0.12) 40%, transparent 70%)',
+          filter: 'blur(40px)',
+          top: '-18%', left: '-12%',
+        }}
+        animate={{
+          scale: [1, 1.08, 1],
+          opacity: [0.7, 0.9, 0.7],
+        }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          ease: 'easeInOut',
         }}
       />
-      <div
+      <motion.div
         style={{
-          position: 'absolute', width: 520, height: 520, borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(6,182,212,0.17) 0%, transparent 65%)',
-          filter: 'blur(32px)',
-          bottom: '-12%', right: '-6%',
+          position: 'absolute', width: 600, height: 600, borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(6,182,212,0.24) 0%, rgba(6,182,212,0.10) 40%, transparent 70%)',
+          filter: 'blur(40px)',
+          bottom: '-14%', right: '-8%',
+        }}
+        animate={{
+          scale: [1, 1.1, 1],
+          opacity: [0.6, 0.85, 0.6],
+        }}
+        transition={{
+          duration: 18,
+          repeat: Infinity,
+          ease: 'easeInOut',
+          delay: 5,
+        }}
+      />
+
+      {/* Additional accent glow - top right */}
+      <motion.div
+        style={{
+          position: 'absolute', width: 400, height: 400, borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(139,92,246,0.20) 0%, rgba(139,92,246,0.08) 40%, transparent 70%)',
+          filter: 'blur(35px)',
+          top: '10%', right: '-5%',
+        }}
+        animate={{
+          scale: [1, 1.12, 1],
+          opacity: [0.5, 0.75, 0.5],
+        }}
+        transition={{
+          duration: 16,
+          repeat: Infinity,
+          ease: 'easeInOut',
+          delay: 10,
         }}
       />
 
@@ -284,12 +413,26 @@ export function AnimatedBackground() {
         />
       ))}
 
-      {/* ── 7 · Edge vignette ─────────────────────────────────────── */}
+      {/* ── 7 · Enhanced edge vignette with gradient border ─────────────────────────────────────── */}
       <div
         style={{
           position: 'absolute', inset: 0,
           background:
-            'radial-gradient(ellipse 110% 110% at 50% 50%, transparent 38%, rgba(2,8,23,0.74) 100%)',
+            'radial-gradient(ellipse 115% 115% at 50% 50%, transparent 35%, rgba(2,8,23,0.60) 75%, rgba(2,8,23,0.85) 100%)',
+        }}
+      />
+
+      {/* Subtle gradient borders at edges */}
+      <div
+        style={{
+          position: 'absolute', top: 0, left: 0, right: 0, height: 2,
+          background: 'linear-gradient(90deg, transparent, rgba(59,130,246,0.4) 50%, transparent)',
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute', bottom: 0, left: 0, right: 0, height: 2,
+          background: 'linear-gradient(90deg, transparent, rgba(6,182,212,0.4) 50%, transparent)',
         }}
       />
 
