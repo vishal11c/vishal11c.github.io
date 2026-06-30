@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vishal11c.pages.dev/sitemap.xml
