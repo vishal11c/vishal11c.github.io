@@ -56,7 +56,7 @@ export function Hero() {
         <p className="max-w-2xl text-base text-text-gray leading-relaxed">{profileData.summaryShort}</p>
 
         <div className="flex flex-wrap gap-3">
-          <Button href="https://drive.google.com/file/d/1iT5FxBr6s5Jl8FQfUHLX2RM3o9k22K2Z/view" target="_blank" rel="noreferrer">
+          <Button href="https://drive.google.com/file/d/1XOes72z3DpyVnlPaRalfLPl_K4VXuPI8/view" target="_blank" rel="noreferrer">
             View Resume
           </Button>
           <Button href={profileData.links.github} variant="outline" target="_blank" rel="noreferrer">
@@ -102,8 +102,6 @@ export function Hero() {
                   alt="Vishal Chauhan profile"
                   name="Vishal Indradev Chauhan"
                   title="Associate Software Engineer @ NICE"
-                  showToggle={true}
-                  initialShape="round"
                 />
               </div>
             </div>
