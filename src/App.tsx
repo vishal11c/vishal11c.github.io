@@ -51,11 +51,11 @@ function App() {
 
       {/* ── Page content (above background, below navbar) ────── */}
       <motion.main
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.45, ease: 'easeOut' }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3, ease: 'easeOut' }}
         className="relative mx-auto flex w-full max-w-6xl flex-col gap-16 px-4 py-10 sm:px-6 md:gap-24 md:py-14"
-        style={{ zIndex: 10 }}
+        style={{ zIndex: 10, willChange: 'opacity' }}
       >
         <Hero />
 

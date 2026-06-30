@@ -2,7 +2,7 @@ export const profileData = {
   name: 'Vishal Indradev Chauhan',
   role: 'Associate Software Engineer @ NICE',
   summaryShort:
-    'I design and build secure, scalable enterprise software with .NET, Angular, AWS, Docker, and Microservices — accelerated by GitHub Copilot, Claude AI, and custom MCP servers.',
+    'Transforming ideas into production-ready cloud solutions. I architect secure, scalable enterprise systems using .NET, Angular, AWS, and Microservices — supercharged by AI-driven workflows with GitHub Copilot, Claude AI, and custom MCP servers.',
   summary:
     'Associate Software Engineer with 2+ years of experience designing enterprise software using .NET, Angular, Java, TypeScript, AWS, CloudFormation, Docker, REST APIs, and Microservices. I actively integrate AI into my engineering workflow — using GitHub Copilot for daily coding, Claude AI for architecture and code review, building custom MCP servers for development automation, and consuming LLM APIs (Anthropic, OpenAI) directly in applications. Experienced in cloud-native systems, infrastructure modernization, secure backend services, and production engineering.',
   links: {
@@ -128,24 +128,24 @@ export const profileData = {
   ],
   projects: [
     {
-      title: 'Enterprise-style MERN Applications',
-      category: 'Full Stack',
+      title: 'Xpert-UtkrishtVaar',
+      category: 'CPP, OOPs, Binary-Search-Tree',
       description:
-        'Built full-stack applications with secure JWT auth, role-based authorization, CRUD flows, advanced filtering/sorting, and scalable component-driven React architecture.',
-      tech: ['React', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'REST APIs'],
+        'Designed and implemented an efficient birthday lookup system by developing a custom binary search tree (BST). Implemented features for adding, listing, and searching birthdays, ensuring sorted output. Utilized object-oriented programming principles to optimize the storage and retrieval of birthday entries.',
+      tech: ['C++', 'OOP', 'Binary Search Tree', 'Data Structures'],
       links: {
-        code: 'https://github.com/vishal11c?tab=repositories',
+        code: 'https://github.com/micklevast/BirthDay-Management-System',
         live: '',
       },
     },
     {
-      title: 'Cloud Orchestration UI Modules',
-      category: 'Cloud Platform',
+      title: 'Kaushalya Darpan',
+      category: 'MERN Stack',
       description:
-        'Developed responsive Angular modules integrated with backend APIs for cloud orchestration and production workflows.',
-      tech: ['Angular', 'TypeScript', 'REST APIs', 'AWS'],
+        'Implemented JWT-powered authentication and authorization for enhanced data security. Elevated user experience with dynamic sorting and insightful filtering based on gender, location, position, department. Handled cookies and session management in the browser to ensure seamless user authentication. Empowered users to explore detailed profiles of employees with selected exceptional skills.',
+      tech: ['MongoDB', 'Express.js', 'React', 'Node.js', 'JWT', 'REST APIs'],
       links: {
-        code: 'https://github.com/vishal11c?tab=repositories',
+        code: 'https://github.com/micklevast/Vishal-AFOURATHON-Project',
         live: '',
       },
     },

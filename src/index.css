@@ -64,6 +64,43 @@
 
 body {
   margin: 0;
+  /* Performance optimizations */
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Hardware acceleration for smooth scrolling */
+img, video, iframe {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Optimize rendering performance */
+.relative, [class*="motion"] {
+  will-change: auto;
+}
+
+/* Reduce repaints */
+img {
+  content-visibility: auto;
+}
+
+/* Optimize animations */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Disable animations on reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 h1,

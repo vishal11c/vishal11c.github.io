@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { FaAws, FaAngular, FaDocker, FaJava, FaReact } from 'react-icons/fa'
 import { SiDotnet, SiTypescript } from 'react-icons/si'
 import { Button } from '../ui/Button'
@@ -30,9 +30,6 @@ const floatingIcons = [
 export function Hero() {
   const { x, y } = useMousePosition()
   const typedText = useTypewriter({ words: heroWords })
-  const { scrollY } = useScroll()
-  const leftParallax = useTransform(scrollY, [0, 800], [0, -40])
-  const rightParallax = useTransform(scrollY, [0, 800], [0, -70])
 
   return (
     <section id="hero" className="glow-container relative grid items-center gap-6 py-2 md:gap-8 md:grid-cols-2">
@@ -41,20 +38,26 @@ export function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.55 }}
         className="space-y-6"
-        style={{ y: leftParallax }}
       >
         <p className="text-xs uppercase tracking-[0.16em] text-primary-secondary sm:text-sm sm:tracking-[0.2em]">{profileData.role}</p>
         <h1 className="font-heading text-3xl font-bold leading-tight sm:text-4xl md:text-5xl lg:text-[3.6rem] xl:text-6xl">
-          Hi, I&apos;m <span className="text-gradient">Vishal Chauhan</span>
+          <span className="text-gradient">Vishal Chauhan</span>
         </h1>
 
-        <p className="h-6 text-sm font-medium text-primary-accent sm:text-base md:h-7 md:text-lg">{typedText}</p>
+        <div className="flex flex-col gap-2">
+          <p className="text-xl font-semibold text-white sm:text-2xl md:text-3xl">
+            Building <span className="text-gradient">Cloud-Native</span> Solutions
+          </p>
+          <p className="h-6 text-sm font-medium text-primary-accent sm:text-base md:h-7 md:text-lg">
+            Architecting {typedText}
+          </p>
+        </div>
 
-        <p className="max-w-2xl text-text-gray">{profileData.summaryShort}</p>
+        <p className="max-w-2xl text-base text-text-gray leading-relaxed">{profileData.summaryShort}</p>
 
         <div className="flex flex-wrap gap-3">
-          <Button href="/resume.pdf" target="_blank" rel="noreferrer">
-            Download Resume
+          <Button href="https://drive.google.com/file/d/1iT5FxBr6s5Jl8FQfUHLX2RM3o9k22K2Z/view" target="_blank" rel="noreferrer">
+            View Resume
           </Button>
           <Button href={profileData.links.github} variant="outline" target="_blank" rel="noreferrer">
             View GitHub
@@ -76,7 +79,6 @@ export function Hero() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, delay: 0.1 }}
         className="relative"
-        style={{ y: rightParallax }}
       >
         <Card as="div" className="relative min-h-[280px] overflow-hidden p-5 sm:min-h-[320px] sm:p-8">
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary-main/20 via-transparent to-primary-secondary/20" />
